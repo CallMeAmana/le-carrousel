@@ -1,0 +1,106 @@
+/* Style global */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('./images/bg.jpg') repeat;
+}
+
+/* En-tête */
+header {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 70px;
+    margin-top: 30px;
+}
+#slider figcaption
+{
+    color: #000000;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 0 6px grey;
+}
+a
+{
+    color: #000000;
+    font-size: 20px;
+    
+    text-decoration: none;
+    transition: text-shadow 0.25s;
+}
+
+a:hover
+{
+    text-shadow: 0 0 4px rgb(50, 99, 223);
+}
+/* Barre d'outils */
+#toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#toolbar button {
+    background-color: #eee;
+    border: 0.5px solid #000000;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#toolbar button:hover {
+    background-color: #ddd;
+}
+
+/* Fenêtre de miniatures */
+#thumbnails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    
+}
+.cadre{
+    border: 1px solid #010000;
+    margin: 0 20px
+}
+
+#thumbnails img {
+    width: 100px;
+    height: auto;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    margin-top: 2px;
+
+}
+
+#thumbnails img.active {
+    border: 2px solid #007bff;
+}
+
+/* Zone principale du diaporama */
+#slider {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 20px;
+
+    text-align: center;
+    transform: rotate(-3deg);
+    transform-origin: 50% 50%;
+}
+
+#slider img {
+    max-width: 100%; /* Pour s'assurer que l'image ne dépasse pas la largeur du conteneur */
+    max-height: 400px; /* Hauteur maximale des images du slider */
+    transition: transform 0.5s ease-in-out;
+    border-radius: 6px;
+    box-shadow: 0 0 8px black;
+    padding: 1em;
+    background-color: white;
+}
+
+
