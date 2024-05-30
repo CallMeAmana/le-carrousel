@@ -98,7 +98,7 @@ function togglePlayPause() {
         playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
     } else {
         timerId = setInterval(showNextImage, 2000);
-        //10 total - 6 (current +1) = 4 restantes
+       
         playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
     }
     isPlaying = !isPlaying;
