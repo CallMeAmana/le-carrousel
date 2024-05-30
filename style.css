@@ -3,6 +3,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     background: url('./images/bg.jpg') repeat;
 }
 
@@ -30,9 +31,9 @@ a {
     
   }
 
-/*a:hover {
-    text-shadow: 0 0 4px rgb(50, 99, 223);
-}*/
+a:hover {
+    text-shadow: 0 0 4px rgb(25, 11, 215);
+}
 
 /* Barre d'outils */
 #toolbar {

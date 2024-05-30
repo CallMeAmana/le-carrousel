@@ -2,12 +2,12 @@
 const images = [
     'images/img1.jpg', 'images/img6.jpg', 'images/img3.jpg', 'images/img4.jpg', 
     'images/img7.jpg', 'images/img1black.jpg', 'images/img6black.jpg', 'images/img3black.jpg', 
-    'images/img4black.jpg', 'images/img7black.jpg'
+    'images/img4black.jpg', 'images/img7black.jpg',
 ];
 const titles = [
-    'Blueberry Moon', 'Stairy red night', 'Mysterious night', 'icelandic view', 
-    'Green night', 'Black Moon', 'Stairy black night', 'Mysterious black night', 
-    'icelandic black view', 'Black night'
+    'Blueberry Moon 1', 'Stairy red night 2', 'Mysterious night 3', 'icelandic view 4', 
+    'Green night 5', 'Black Moon 6', 'Stairy black night 7', 'Mysterious black night 8', 
+    'icelandic black view 9', 'Black night 10'
 ];
 const thumbnailsPerPage = 5;
 let currentIndex = 0;
@@ -78,11 +78,19 @@ function showNextImage() {
 
 function showRandomImage() {
     let randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * images.length);
-    } while (randomIndex === currentIndex);
+
+    if (currentIndex === images.length - 1) {
+        
+        randomIndex = Math.floor(Math.random() * (images.length - 1));
+    } else {
+        
+        randomIndex = Math.floor(Math.random() * (images.length - (currentIndex + 1))) + (currentIndex + 1);
+    }
+
     showImage(randomIndex);
 }
+
+
 
 function togglePlayPause() {
     if (isPlaying) {
@@ -90,11 +98,12 @@ function togglePlayPause() {
         playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
     } else {
         timerId = setInterval(showNextImage, 2000);
+        //10 total - 6 (current +1) = 4 restantes
         playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
     }
     isPlaying = !isPlaying;
 }
-
+// Basculer la lecture/pause aléatoire des images
 function toggleRandomPlayPause() {
     if (isRandomPlaying) {
         clearInterval(timerId);
@@ -121,17 +130,17 @@ function toggleToolbarVisibility() {
 }
 
 function showThumbnails() {
-    const start = currentPage * thumbnailsPerPage;
-    const end = start + thumbnailsPerPage;
+    const start = currentPage * thumbnailsPerPage;// Calculer l'indice de départ pour les miniatures
+    const end = start + thumbnailsPerPage;// Calculer l'indice de fin pour les miniatures
     const thumbnailsDiv = thumbnailsContainer.querySelector('.cadre');
-    thumbnailsDiv.innerHTML = '';
+    thumbnailsDiv.innerHTML = '';// Effacer les miniatures existantes
 
     for (let i = start; i < end && i < images.length; i++) {
         const img = document.createElement('img');
         img.src = images[i];
-        img.alt = titles[i];
-        img.addEventListener('click', () => showImage(i));
-        thumbnailsDiv.appendChild(img);
+        img.alt = titles[i];// Définir le texte alternatif de l'image
+        img.addEventListener('click', () => showImage(i));// Ajouter un écouteur d'év
+        thumbnailsDiv.appendChild(img);// Ajouter l'image au conteneur des miniatures
     }
 
     // Mise à jour de l'apparence des miniatures
